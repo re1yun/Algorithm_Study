@@ -22,6 +22,4 @@ n	return
 보통 약수의 경우, 나눈 값 또한 약수이기 때문에, 이미 구한 약수의 값과 같은 수가 아닌 경우 더해주었다.
 
 ***
-문제 링크: [링크][qlink]
-
-[qlink]: https://school.programmers.co.kr/learn/courses/30/lessons/12928
+문제 링크: [링크](https://school.programmers.co.kr/learn/courses/30/lessons/12928)
