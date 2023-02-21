@@ -17,7 +17,7 @@ arr	return
 간단하게 arr 배열을 돌면서 값을 더해주고, size() 함수를 이용해서 평균을 구해주었다.
 다른 사람의 풀이를 보니, <numeric> 라이브러리의 accumulate 함수를 사용하여 간편하게 구했다.
 
-''' cpp
+'''c++
     #include <iostream>
     #include <numeric>
     #include <vector>
