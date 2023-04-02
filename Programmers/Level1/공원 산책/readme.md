@@ -43,5 +43,9 @@ park	routes	result
 
 ***
 
+find 함수에 대해서 새로운 걸 배웠다. find(begin, end)에서 begin 부분은 검색에 포함되나 end 부분은 포함되지 않는다는 것이다. 이걸 몰라서 엄청 고생했다. 지금까지 vector를 find할 때 vector.begin(), vector.end()를 사용해와서 vector.end()가 마지막 element를 가르키는 줄 알았는데 그게 아니었다.
+
+문제는 park를 기반으로 map과 mapTranspose를 구해 장애물 검색시 전부 하나의 array를 검색할 수 있도록 했다. 안그러면 세로로 검색할 시 모든 array를 불러와야하기 때문에 이런 방법을 썼다. 
+
 ***
 문제 링크: [링크](https://school.programmers.co.kr/learn/courses/30/lessons/172928)

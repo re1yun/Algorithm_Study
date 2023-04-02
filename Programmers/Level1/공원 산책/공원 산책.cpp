@@ -17,26 +17,37 @@ using namespace std;
 vector<int> solution(vector<string> park, vector<string> routes) {
     vector<int> answer;
     // map: normal map, mapTranspose: transposed version of map
-    int map[park.size()][park[0].size()];
-    int mapTranspose[park[0].size()][park.size()];
+    int** map = new int*[park.size()];
+    int** mapTranspose = new int*[park[0].size()];
+
     // x, y: current position of dog
     int x, y;
     // initialize map
     for(int i = 0; i < park.size(); i++){
+        map[i] = new int[park[0].size()];
         for(int j = 0; j < park[i].size(); j++){
             if(park[i][j] == 'O'){
                 map[i][j] = 0;
-                mapTranspose[j][i] = 0;
             }
             else if(park[i][j] == 'X'){
                 map[i][j] = 1;
-                mapTranspose[j][i] = 1;
             }
             else if(park[i][j] == 'S'){
                 map[i][j] = 0;
-                mapTranspose[j][i] = 0;
                 x = i;
                 y = j;
+            }
+        }
+    }
+
+    for(int i = 0; i < park[0].size(); i++){
+        mapTranspose[i] = new int[park.size()];
+        for(int j = 0; j < park.size(); j++){
+            if(park[j][i] == 'X'){
+                mapTranspose[i][j] = 1;
+            }
+            else {
+                mapTranspose[i][j] = 0;
             }
         }
     }
@@ -61,7 +72,7 @@ vector<int> solution(vector<string> park, vector<string> routes) {
         }
         else if(dir == 'E'){
             ptr = map[x];
-            if(y + dist < park[0].size() && (find(ptr + y, ptr + (y + dist), 1) == ptr + (y + dist))){
+            if(y + dist < park[0].size() && (find(ptr + y + 1, ptr + (y + dist) + 1, 1) == ptr + (y + dist) + 1)){
                 // no obstacle
                 y += dist;
             }
@@ -84,7 +95,7 @@ vector<int> solution(vector<string> park, vector<string> routes) {
         }
         else if(dir == 'S'){
             ptr = mapTranspose[y];
-            if(x + dist < park.size() && (find(ptr + x, ptr + (x + dist), 1) == ptr + (x + dist))){
+            if(x + dist < park.size() && (find(ptr + x + 1, ptr + x + dist + 1, 1) == ptr + x + dist + 1)){
                 // no obstacle
                 x += dist;
             }
