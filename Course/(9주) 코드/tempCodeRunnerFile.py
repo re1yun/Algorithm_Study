@@ -1,0 +1,1 @@
+(min(math.floor(c), N) - y1) // (x1 // gcd(x1, y1))
